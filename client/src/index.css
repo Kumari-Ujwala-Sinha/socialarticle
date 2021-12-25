@@ -13,23 +13,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#theme{
+  display: none;
+}
+#theme:checked ~ .App{
+  filter: invert(1);
+}
+
 .App{
-  max-width: 1200px;
-  width: 100%;
+  width:100%;
   min-height: 100vh;
-  box-shadow: 0 0 20px #eee;
-  margin: 0 auto;
-  overflow: hidden;
+  background-color: white;
 }
-a{
-  text-decoration: none;
+.main{
+  max-width:1000px;
+  width: 100%;
+  margin: auto;
 }
-ul{
-  list-style: none;
-}
-button{
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
+
+/*********Auth Css******/
+@import url("./styles/auth.css");
+
+/*********Auth Css******/
+@import url("./styles/loading.css");
+
 
