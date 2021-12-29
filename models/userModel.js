@@ -32,7 +32,7 @@ const userSchema =new mongoose.Schema(
     avatar: {
       type: String,
       default:
-        "https://images.pexels.com/photos/3866555/pexels-photo-3866555.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png",
     },
     gender: {
       type: String,

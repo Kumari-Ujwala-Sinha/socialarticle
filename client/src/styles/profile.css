@@ -1,0 +1,52 @@
+
+.info{
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    padding: 10px 20px;
+}
+
+.info_container{
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.info_container .info_content{
+    max-width: 400px;
+    min-width: 200px;
+    width:100%;
+    flex: 1;
+    opacity: 0.7;
+    margin: 0 15px;
+
+}
+
+.info_container .info_content .info_content_title{
+    display: flex;
+    flex-wrap: wrap;
+    
+    align-items: baseline;
+}
+
+.info_container .info_content .info_content_title h2{
+    font-size: 2rem;
+    font-weight: 400;
+    flex: 3;
+}
+
+.info_container .info_content .info_content_title button{
+    flex: 2;
+}
+
+.info_container .info_content .follow_btn span{
+    color: teal;
+    cursor: pointer;
+    
+}
+
+.info_container .info_content .follow_btn span:hover{
+    text-decoration: underline;
+}

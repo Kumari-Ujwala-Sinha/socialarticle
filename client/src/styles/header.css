@@ -1,0 +1,124 @@
+.header{
+    width: 100%;
+    height: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 10px #ddd;
+    z-index: 2;
+}
+
+.header .navbar{
+    width: 100%;
+    height: 100%;
+}
+
+.header .menu li{
+    opacity: 0.5;
+}
+
+.header .menu li.active{
+    opacity: 1;
+}
+
+.header .menu .material-icons{
+    font-size: 30px;
+}
+
+.header .menu .dropdown-menu{
+    position: absolute;
+    left: inherit;
+    right: 0;
+    opacity: 1;
+}
+
+.header .menu label{
+    cursor: pointer;
+}
+
+.header .search-form{
+    position: relative;
+    
+}
+
+.header .search-form #search{ 
+    min-width: 250px;
+    width:100%;
+    outline: none;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-indent: 5px;
+
+}
+
+.header .search-form .search-icon{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.header .search-form .search-icon .material-icons{
+    font-size: 15px;
+    transform: translateY(3px);
+}
+
+.header .search-form .close-search{
+    position: absolute;
+    top: 0;
+    right:5px;
+    font-weight: 900;
+    cursor: pointer;
+    color: crimson;
+}
+
+.header .search-form .users{
+    position: absolute;
+    min-width: 250px;
+    width:100%;
+    background: #fafafa;
+    margin-top: 2px;
+    max-height: calc(100vh - 150px);
+    overflow:auto
+}
+.header .search-form .loading{
+    position: absolute;
+    top:50%;
+    right:5px;
+    width:15px;
+    height: 15px;
+    transform: translateY(-50%);
+
+}
+
+@media (max-width:768px){
+    .header .menu{
+        position: fixed;
+        bottom:0;
+        left: 0;
+        box-shadow: 0 0 10px #ddd;
+        z-index: 5;
+        width: 100%;
+    }
+
+    .header .menu .navbar-nav{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .header .menu .dropdown-menu{
+        top:auto;
+        bottom:100%
+    }
+
+    .header .search-form{
+        width:100%
+    }
+
+    .header .logo{
+       margin: auto;
+    }
+}
