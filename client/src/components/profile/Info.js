@@ -4,20 +4,20 @@ import { useSelector, useDispatch } from "react-redux";
 import Avatar from "../Avatar";
 import { getProfileUser } from "../../redux/actions/profileAction";
 import EditProfile from "./EditProfile";
+import FollowBtn from "../FollowBtn";
 const Info = () => {
   const [userData, setUserData] = useState([]);
-  const [onEdit, setOnEdit]=useState(false)
+  const [onEdit, setOnEdit] = useState(false);
   const { id } = useParams();
   const { auth, profile } = useSelector((state) => state);
   const dispatch = useDispatch();
   useEffect(() => {
     if (id === auth.user._id) {
       setUserData([auth.user]);
-    }else{
-        dispatch(getProfileUser({users:profile.users,auth, id}))
-     const newData=profile.users.filter(user=>user._id === id)
-     setUserData(newData)
-        
+    } else {
+      dispatch(getProfileUser({ users: profile.users, auth, id }));
+      const newData = profile.users.filter((user) => user._id === id);
+      setUserData(newData);
     }
   }, [id, auth, dispatch, profile.users]);
   return (
@@ -28,13 +28,24 @@ const Info = () => {
           <div className="info_content">
             <div className="info_content_title">
               <h2>{user.username}</h2>
-              <button className="btn btn-outline-info" onClick={()=>setOnEdit(true)}>Edit Profile</button>
+              {auth.user._id === id ? (
+                <button
+                  className="btn btn-outline-info"
+                  onClick={() => setOnEdit(true)}
+                >
+                  Edit Profile
+                </button>
+              ) : (
+                <FollowBtn user={user} />
+              )}
             </div>
             <div className="follow_btn">
               <span className="mr-4">{user.followers.length} Follower</span>
               <span className="ml-4">{user.following.length} Following</span>
             </div>
-            <h6>{user.fullname} {user.mobile}</h6>
+            <h6>
+              {user.fullname} <span className="text-danger">{user.mobile}</span>
+            </h6>
             <p className="m-0">{user.address}</p>
             <h6>{user.email}</h6>
             <a href={user.website} target="_blank" rel="noopener noreferrer">
@@ -42,9 +53,8 @@ const Info = () => {
             </a>
             <p>{user.story}</p>
           </div>
-          {onEdit && <EditProfile user={user} setOnEdit={setOnEdit}/>}
+          {onEdit && <EditProfile setOnEdit={setOnEdit} />}
         </div>
-        
       ))}
     </div>
   );
